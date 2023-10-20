@@ -5,10 +5,9 @@ export default function SapperPage() {
   return (
     <div>
       <h1>Sapper</h1>
-
-      <div className="flex">
-        <GameFileld />
+      <div>
         <GameInfo />
+        <GameFileld />
       </div>
     </div>
   );

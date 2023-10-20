@@ -1,6 +1,20 @@
-import React from "react";
+import { useState, useEffect } from "react";
 import classes from "./Field.module.scss";
 
-export default function Field() {
-  return <li className={classes.wrapper}></li>;
+interface FieldType {
+  index: number;
+  selectField: (index: number) => void;
+  i: String;
+}
+
+export default function Field(props: FieldType) {
+  const selectField = () => {
+    props.selectField(props.index);
+  };
+
+  return (
+    <li className={classes.wrapper} onClick={selectField}>
+      {props.i}
+    </li>
+  );
 }

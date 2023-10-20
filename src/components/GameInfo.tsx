@@ -1,29 +1,34 @@
 import React, { useState } from "react";
 import Settings from "../components/Settings";
 import SettingsIcon from "../components/UI/SettingsIcon";
-import { useSelector } from "react-redux";
+import { useAppSelector } from "../hooks/redux-hooks";
+import GameinfoItem from "./UI/GameinfoItem";
 
 export default function GameInfo() {
-  const level = useSelector((state) => state.sapper.level);
-  const length = useSelector((state) => state.sapper.length);
+  const level = useAppSelector((state) => state.sapper.level);
+  const length = useAppSelector((state) => state.sapper.length);
+  const tension = useAppSelector((state) => state.sapper.tension);
+
   const [onSettings, setOnSettings] = useState<boolean>(true);
 
   const showOnSettings = () => {
     setOnSettings(!onSettings);
   };
 
+  console.log(tension);
+
   return (
-    <div className="ml-10 mt-5 w-40">
-      <SettingsIcon showOnSettings={showOnSettings} />
-      {onSettings ? <Settings /> : ""}
-      <div className="flex mt-5">
-        <h3 className="font-bold">Уровень:</h3>
-        <p className="ml-3">{level}</p>
+    <div className="my-5 ">
+      <div>
+        <SettingsIcon showOnSettings={showOnSettings} />
+        {onSettings ? <Settings /> : ""}
       </div>
-      <div className="flex">
-        <h3 className="font-bold">Сложность:</h3>
-        <p className="ml-3">{length}</p>
-      </div>
+
+      <ul className="flex">
+        <GameinfoItem label="Уровней:" value={level} />
+        <GameinfoItem label="Сложность:" value={length} />
+        <GameinfoItem label="Напряженность:" value={tension} />
+      </ul>
     </div>
   );
 }
