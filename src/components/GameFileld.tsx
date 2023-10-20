@@ -17,6 +17,7 @@ export default function GameFileld() {
   const [win, setWin] = useState<boolean>(false);
 
   const startGame = () => {
+    setWin(false);
     setCurrentLevel(0);
     let onStartGame: String[][] = [];
     indexLevel.splice(0, indexLevel.length);
