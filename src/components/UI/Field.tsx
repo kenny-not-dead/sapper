@@ -1,4 +1,3 @@
-import { useState, useEffect } from "react";
 import classes from "./Field.module.scss";
 
 interface FieldType {
@@ -12,9 +11,5 @@ export default function Field(props: FieldType) {
     props.selectField(props.index);
   };
 
-  return (
-    <li className={classes.wrapper} onClick={selectField}>
-      {props.i}
-    </li>
-  );
+  return <li className={classes.wrapper} onClick={selectField}></li>;
 }

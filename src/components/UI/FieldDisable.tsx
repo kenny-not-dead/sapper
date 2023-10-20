@@ -13,13 +13,7 @@ export default function FieldDisable(props: FieldDisableType) {
         !props.passed ? classes.wrapperdisable : classes.wrapperdisablepassed
       }
     >
-      {!props.passed ? (
-        props.i
-      ) : props.i === "1" ? (
-        <img src={mine} alt="*" />
-      ) : (
-        ""
-      )}
+      {!props.passed ? "" : props.i === "1" ? <img src={mine} alt="*" /> : ""}
     </li>
   );
 }
