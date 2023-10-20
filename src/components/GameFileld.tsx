@@ -83,13 +83,18 @@ export default function GameFileld() {
         {indexLevel.map((i) => {
           if (currentLevel + 1 == i) {
             return (
-              <div className="flex">
+              <div className="flex" key={i}>
                 <h3 className={classes.headerlevelActive}> Уровень {i}</h3>{" "}
                 <img src={sapper} className={classes.sapperImg} />
               </div>
             );
           } else {
-            return <h3 className={classes.headerlevel}> Уровень {i}</h3>;
+            return (
+              <h3 key={i} className={classes.headerlevel}>
+                {" "}
+                Уровень {i}
+              </h3>
+            );
           }
         })}
       </div>

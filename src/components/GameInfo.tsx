@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Settings from "../components/Settings";
 import SettingsIcon from "../components/UI/SettingsIcon";
 import { useAppSelector } from "../hooks/redux-hooks";
@@ -14,8 +14,6 @@ export default function GameInfo() {
   const showOnSettings = () => {
     setOnSettings(!onSettings);
   };
-
-  console.log(tension);
 
   return (
     <div className="my-5 ">
